@@ -3,12 +3,6 @@
 Route::get('/', 'HomeController@index')->name('index');
 
 
+Route::resource('blog', 'BlogController');
+
 Auth::routes();
-
-
-
-
-Route::group(['prefix' => 'blog', 'as' => 'blog.'], function ()  {
-    Route::get('/', 'BlogController@index')->name('index');
-    Route::get('/{slug}', 'BlogController@index')->name('show');
-});

@@ -16,7 +16,10 @@ class ViewServiceProvider extends ServiceProvider
     public function register()
     {
 
-        \View::composer('layouts.partial.*', function(View $view) {
+        \View::composer([
+            'layouts.partial.footer',
+            'static-pages.contact'
+        ], function(View $view) {
             $setting = SiteConfig::first();
             $view->with('setting', $setting);
         });
