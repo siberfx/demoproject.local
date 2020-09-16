@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-
     /**
-     * @return Factory|View
+     * Create a new controller instance.
+     *
+     * @return void
      */
-    public function index()
+    public function __construct()
     {
-        return view('home.index');
+        $this->middleware('auth');
     }
 
     /**
-     * @return Factory|View
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function contact()
+    public function index()
     {
-        return view('static-pages.contact');
+        return view('home');
     }
 }
